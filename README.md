@@ -18,7 +18,7 @@
 [^INBO]: Research Institute for Nature and Forest (INBO)
 [^pbl]: publisher
 
-**keywords**:  soil; EU; soil monitoring law; transfer functions; pedo-transfer functions; statistics
+**keywords**:  soil; EU; soil monitoring law; transfer functions; pedotransfer functions; statistics
 
 <!-- community: inbo -->
 
