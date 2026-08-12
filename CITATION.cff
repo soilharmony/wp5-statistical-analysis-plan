@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: If you use this software, please cite it using these metadata.
-title: "SoilHarmony"
+title: "SoilHarmony: statistical analysis plan"
 authors:
 - given-names: Ben
   family-names: Serrien
@@ -26,5 +26,32 @@ doi: ~
 license: CC BY 4.0
 repository-code: https://github.com/soilharmony/wp5-statistical-analysis-plan/
 type: software
-abstract: "Statistical Analysis Plan for the SoilHarmony project (WP5, T5.1)."
+abstract: "## SoilHarmony, Work Package 5\n\nDeliverable D5.1 – Statistical analysis
+  plan for best practices for the development and validation of TF and PTF.\n\nFrom
+  the grant agreement, Annex 1, part B:\n\nAs a first step, WP5 will develop a statistical
+  analysis plan based on input from WP1, i.e., determining statistical practices in
+  use regarding TF and PTF (supply-side analysis) and the requirements of the call
+  and the SML (demand-side analysis). For the supply-side analysis, partners will
+  determine which information needs to be extracted from published sources related
+  to TF/PTF to make a statistical assessment of their quality and applicability. This
+  will include, a.o., algorithm used, required input data, characteristics of the
+  training data, uncertainty of the estimation, type of validation (non, cross-validation,
+  or independent validation set). The various statistical methods will then be first
+  divided into methods related to method comparison; methods associated with TF development
+  and methods related to PTF development. Their underlying assumptions will be made
+  explicit, and conceptually similar models/methods will be grouped. For instance,
+  within TF models, a distinction will be made between asymmetrical (e.g. linear regression
+  models) and symmetrical models (e.g. orthogonal or major axis regression, Deming
+  regression, ...). Relevant literature on similar statistical techniques will also
+  be drawn from other scientific domains. For the demand-side analysis, partners will
+  translate the requirements of the call and SML to clearly defined research questions
+  to which a specific statistical task can be attributed. The demand and supply sides
+  will then be confronted with each other and synthesized, resulting in a list of
+  methods suitable for answering the various research questions and statistical tasks.
+  Potential knowledge gaps regarding statistical methods will be identified. Each
+  of the research questions will naturally depend on the others, reflecting the TF
+  and PTF life cycle (development, validation, use), which will form the basis of
+  the statistical analysis plan. Best statistical practices will be identified and
+  applied in the statistical analysis plan, which forms the backbone of WP5 tasks.\n\nThis
+  github repo will be used for writing the statistical analysis plan.\n"
 version: 0.0.0
