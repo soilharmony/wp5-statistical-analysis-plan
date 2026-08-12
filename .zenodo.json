@@ -1,0 +1,42 @@
+{
+  "version": "0.0.0",
+  "license": "CC BY 4.0",
+  "access_right": "open",
+  "language": "eng",
+  "title": "SoilHarmony",
+  "description": "<p>StAP<\/p>",
+  "keywords": [
+    "soil"
+  ],
+  "upload_type": "software",
+  "contributors": [
+    {
+      "name": "Serrien, Ben",
+      "affiliation": "Research Institute for Nature and Forest (INBO)",
+      "orcid": "0000-0001-5542-997X",
+      "type": "contactperson"
+    },
+    {
+      "name": "Research Institute for Nature and Forest (INBO)",
+      "type": "rightsholder"
+    }
+  ],
+  "creators": [
+    {
+      "name": "Serrien, Ben",
+      "affiliation": "Research Institute for Nature and Forest (INBO)",
+      "orcid": "0000-0001-5542-997X"
+    },
+    {
+      "name": "Van Calster, Hans",
+      "affiliation": "Research Institute for Nature and Forest (INBO)",
+      "orcid": "0000-0001-8595-8426"
+    }
+  ],
+  "communities": [
+    {
+      "identifier": "inbo"
+    }
+  ],
+  "publisher": "Research Institute for Nature and Forest (INBO)"
+}
