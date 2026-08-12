@@ -4,16 +4,21 @@
   "access_right": "open",
   "language": "eng",
   "title": "SoilHarmony",
-  "description": "<p>StAP<\/p>",
+  "description": "<p>Statistical Analysis Plan for the SoilHarmony project (WP5, T5.1).<\/p>",
   "keywords": [
-    "soil"
+    "soil",
+    "EU",
+    "soil monitoring law",
+    "transfer functions",
+    "pedotransfer functions",
+    "statistics"
   ],
   "upload_type": "software",
   "contributors": [
     {
-      "name": "Serrien, Ben",
+      "name": "Van Calster, Hans",
       "affiliation": "Research Institute for Nature and Forest (INBO)",
-      "orcid": "0000-0001-5542-997X",
+      "orcid": "0000-0001-8595-8426",
       "type": "contactperson"
     },
     {
