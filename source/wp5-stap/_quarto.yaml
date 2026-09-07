@@ -1,0 +1,24 @@
+project:
+  type: book
+
+book:
+  title: ""
+  author: ""
+  date: ""
+  chapters:
+    - index.qmd
+    - executive-summary.qmd # incl. TOC, LOF, LOT, LOA
+    - definitions.qmd
+    - statistical-models.qmd
+    - references.qmd
+
+bibliography: references.json
+csl: https://raw.githubusercontent.com/citation-style-language/styles/refs/heads/master/research-institute-for-nature-and-forest.csl
+
+format:
+  pdf:
+    toc: false
+    include-in-header: header.tex
+    include-before-body:
+      text: |
+        \includepdf[pages=1]{media/title-page.pdf}

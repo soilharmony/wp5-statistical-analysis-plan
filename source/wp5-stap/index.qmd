@@ -1,0 +1,85 @@
+# Project & deliverable {.unnumbered}
+
+## Project data
+
+```{r, echo = F}
+library(tibble) |> suppressPackageStartupMessages()
+library(flextable) |> suppressPackageStartupMessages()
+
+project_data <- tribble(
+  ~ "V1",            ~ "V2",
+  "Project acronym", "SOILHARMONY",
+  "Project name",    "Towards a Harmonised pan-European Monitoring of Soil Health Descriptors",
+  "Project number",  "101296615",
+  "Call topic",      "HORIZON-MISS-2025-05-SOIL-04",
+  "Type of action",  "HORIZON-RIA",
+  "Lead contractor", "INRAE",
+  "Project website", "... coming soon"
+)
+flextable(project_data) |> 
+  autofit() |> 
+  delete_part(part = "header") |> 
+  theme_box()
+```
+
+
+## Deliverable data
+
+```{r, echo=F}
+
+deliverable_data <- tribble(
+  ~ "V1",                ~ "V2",
+  "Name/title",          "AI - POPD - NEC - H - EPQ - Requirement No. 1",
+  "Deliverable no.",     "D5.1",
+  "Description",         "Statistical Analysis Plan (StAP)",
+  "Type",                "??",
+  "Dissemination level", "??",
+  "Due date",            "M12",
+  "Submission date",     "??",
+  "Work package no.",    "WP5",
+  "Lead beneficiary",    "EVINBO / CRA-W / ATK",
+  "Version",             "",
+  "Author(s)",           ""
+)
+flextable(deliverable_data) |> 
+  autofit() |> 
+  delete_part(part = "header") |> 
+  theme_box()
+```
+
+\newpage
+
+## Contributors
+
+```{r, echo=F}
+
+contributors <- tribble(
+  ~ "Name",           ~ "Organization and country",
+  "Hans Van Calster", "Research Institute Nature and Forest, Flanders (Belgium)",
+  "Ben Serrien",      "Research Institute Nature and Forest, Flanders (Belgium)",
+)
+flextable(contributors) |> 
+  autofit() |> 
+  theme_box()
+```
+
+## Revision history
+
+```{r, echo=F}
+
+revision_history <- tribble(
+  ~ "Version", ~ "Date",     ~ "Reviewer", ~ "Modifications",
+  "V0",        "2026-09-07", "/",          "/"
+)
+flextable(revision_history) |> 
+  autofit() |> 
+  theme_box()
+```
+
+<br>
+
+\begin{flushright}
+Place and date
+\end{flushright}
+
+
