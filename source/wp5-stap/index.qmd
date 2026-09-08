@@ -25,10 +25,10 @@ flextable(project_data) |>
   autofit() |>
   delete_part(part = "header") |>
   style(
-    j = 1, 
+    j = 1,
     pr_c = fp_cell(background.color = "darkgreen"),
     pr_t = fp_text(color = "white")
-  ) |> 
+  ) |>
   theme_box()
 ```
 
@@ -54,10 +54,10 @@ flextable(deliverable_data) |>
   autofit() |>
   delete_part(part = "header") |>
   style(
-    j = 1, 
+    j = 1,
     pr_c = fp_cell(background.color = "darkgreen"),
     pr_t = fp_text(color = "white")
-  ) |> 
+  ) |>
   theme_box()
 ```
 
