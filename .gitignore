@@ -15,6 +15,7 @@
 *.html
 *.mdb
 *.pdf
+!source/wp5-stap/_book/*.pdf
 *.[rR][dD]ata
 *.[rR]ds
 *.shp*
