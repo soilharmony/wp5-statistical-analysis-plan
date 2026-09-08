@@ -1,13 +1,15 @@
 # Project & deliverable {.unnumbered}
 
-```{r, echo=F}
-library(tibble) |> suppressPackageStartupMessages()
-library(flextable) |> suppressPackageStartupMessages()
-library(officer) |> suppressPackageStartupMessages()
+```{r}
+#| label: load-packages
+#| include: FALSE
+library(tibble)
+library(flextable)
+library(officer)
 ```
 
 
-```{r, echo = F}
+```{r}
 #| tbl-cap: "Project data"
 
 project_data <- tribble(
@@ -32,7 +34,7 @@ flextable(project_data) |>
   theme_box()
 ```
 
-```{r, echo=F}
+```{r}
 #| tbl-cap: "Deliverable data"
 
 deliverable_data <- tribble(
@@ -63,7 +65,7 @@ flextable(deliverable_data) |>
 
 \newpage
 
-```{r, echo=F}
+```{r}
 #| tbl-cap: "Contributors"
 
 inbo <- "Research Institute Nature and Forest, Flanders (Belgium)"
@@ -82,7 +84,7 @@ flextable(contributors) |>
 ```
 
 
-```{r, echo=F}
+```{r}
 #| tbl-cap: "Revision history"
 
 revision_history <- tribble(
