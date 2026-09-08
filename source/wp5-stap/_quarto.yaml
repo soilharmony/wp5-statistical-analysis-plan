@@ -26,5 +26,9 @@ format:
       text: |
         \includepdf[pages=1]{media/title-page.pdf}
 
+knitr:
+  opts_chunk:
+    echo: FALSE
+
 filters:
   - flextable-qmd
