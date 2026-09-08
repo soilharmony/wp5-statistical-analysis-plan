@@ -9,16 +9,17 @@ library(flextable) |> suppressPackageStartupMessages()
 project_data <- tribble(
   ~ "V1",            ~ "V2",
   "Project acronym", "SOILHARMONY",
-  "Project name",    "Towards a Harmonised pan-European Monitoring of Soil Health Descriptors",
+  "Project name", paste0("Towards a Harmonised pan-European Monitoring",
+                         "of Soil Health Descriptors"),
   "Project number",  "101296615",
   "Call topic",      "HORIZON-MISS-2025-05-SOIL-04",
   "Type of action",  "HORIZON-RIA",
   "Lead contractor", "INRAE",
   "Project website", "... coming soon"
 )
-flextable(project_data) |> 
-  autofit() |> 
-  delete_part(part = "header") |> 
+flextable(project_data) |>
+  autofit() |>
+  delete_part(part = "header") |>
   theme_box()
 ```
 
@@ -41,9 +42,9 @@ deliverable_data <- tribble(
   "Version",             "",
   "Author(s)",           ""
 )
-flextable(deliverable_data) |> 
-  autofit() |> 
-  delete_part(part = "header") |> 
+flextable(deliverable_data) |>
+  autofit() |>
+  delete_part(part = "header") |>
   theme_box()
 ```
 
@@ -53,13 +54,14 @@ flextable(deliverable_data) |>
 
 ```{r, echo=F}
 
+inbo <- "Research Institute Nature and Forest, Flanders (Belgium)"
 contributors <- tribble(
-  ~ "Name",           ~ "Organization and country",
-  "Hans Van Calster", "Research Institute Nature and Forest, Flanders (Belgium)",
-  "Ben Serrien",      "Research Institute Nature and Forest, Flanders (Belgium)",
+  ~ "Name",         ~ "Organization and country",
+  "Hans Van Calster", inbo,
+  "Ben Serrien",      inbo,
 )
-flextable(contributors) |> 
-  autofit() |> 
+flextable(contributors) |>
+  autofit() |>
   theme_box()
 ```
 
@@ -71,15 +73,13 @@ revision_history <- tribble(
   ~ "Version", ~ "Date",     ~ "Reviewer", ~ "Modifications",
   "V0",        "2026-09-07", "/",          "/"
 )
-flextable(revision_history) |> 
-  autofit() |> 
+flextable(revision_history) |>
+  autofit() |>
   theme_box()
 ```
 
-<br>
-
+```{=latex}
 \begin{flushright}
 Place and date
 \end{flushright}
-
-
+```
