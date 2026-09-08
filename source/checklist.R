@@ -1,2 +1,7 @@
 library(checklist)
 check_project()
+check_spelling()
+check_lintr()
+check_license()
+check_filename()
+check_folder()
