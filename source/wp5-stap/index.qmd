@@ -5,6 +5,7 @@
 ```{r, echo = F}
 library(tibble) |> suppressPackageStartupMessages()
 library(flextable) |> suppressPackageStartupMessages()
+library(officer) |> suppressPackageStartupMessages()
 
 project_data <- tribble(
   ~ "V1",            ~ "V2",
@@ -20,6 +21,11 @@ project_data <- tribble(
 flextable(project_data) |>
   autofit() |>
   delete_part(part = "header") |>
+  style(
+    j = 1, 
+    pr_c = fp_cell(background.color = "darkgreen"),
+    pr_t = fp_text(color = "white")
+  ) |> 
   theme_box()
 ```
 
@@ -45,6 +51,11 @@ deliverable_data <- tribble(
 flextable(deliverable_data) |>
   autofit() |>
   delete_part(part = "header") |>
+  style(
+    j = 1, 
+    pr_c = fp_cell(background.color = "darkgreen"),
+    pr_t = fp_text(color = "white")
+  ) |> 
   theme_box()
 ```
 
