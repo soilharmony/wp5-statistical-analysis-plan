@@ -8,8 +8,10 @@ book:
   chapters:
     - index.qmd
     - executive-summary.qmd # incl. TOC, LOF, LOT, LOA
+    # <-- insert chapters here
     - definitions.qmd
     - statistical-models.qmd
+    # insert chapters here -->
     - references.qmd
 
 bibliography: references.json
