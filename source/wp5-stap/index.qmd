@@ -1,0 +1,106 @@
+# Project & deliverable {.unnumbered}
+
+```{r}
+#| label: load-packages
+#| include: FALSE
+library(tibble)
+library(flextable)
+library(officer)
+```
+
+
+```{r}
+#| tbl-cap: "Project data"
+
+project_data <- tribble(
+  ~ "V1",            ~ "V2",
+  "Project acronym", "SOILHARMONY",
+  "Project name", paste0("Towards a Harmonised pan-European Monitoring",
+                         "of Soil Health Descriptors"),
+  "Project number",  "101296615",
+  "Call topic",      "HORIZON-MISS-2025-05-SOIL-04",
+  "Type of action",  "HORIZON-RIA",
+  "Lead contractor", "INRAE",
+  "Project website", "... coming soon"
+)
+flextable(project_data) |>
+  autofit() |>
+  delete_part(part = "header") |>
+  style(
+    j = 1,
+    pr_c = fp_cell(background.color = "darkgreen"),
+    pr_t = fp_text(color = "white")
+  ) |>
+  theme_box()
+```
+
+```{r}
+#| tbl-cap: "Deliverable data"
+
+deliverable_data <- tribble(
+  ~ "V1",                ~ "V2",
+  "Name/title",          "AI - POPD - NEC - H - EPQ - Requirement No. 1",
+  "Deliverable no.",     "D5.1",
+  "Description",         "Statistical Analysis Plan (StAP)",
+  "Type",                "??",
+  "Dissemination level", "??",
+  "Due date",            "M12",
+  "Submission date",     "??",
+  "Work package no.",    "WP5",
+  "Lead beneficiary",    "EVINBO / CRA-W / ATK",
+  "Version",             "",
+  "Author(s)",           ""
+)
+
+flextable(deliverable_data) |>
+  autofit() |>
+  delete_part(part = "header") |>
+  style(
+    j = 1,
+    pr_c = fp_cell(background.color = "darkgreen"),
+    pr_t = fp_text(color = "white")
+  ) |>
+  theme_box()
+```
+
+\newpage
+
+```{r}
+#| tbl-cap: "Contributors"
+
+inbo <- "Research Institute Nature and Forest, Flanders (Belgium)"
+
+contributors <- tribble(
+  ~ "Name",         ~ "Organization and country",
+  "Hans Van Calster", inbo,
+  "Ben Serrien",      inbo,
+)
+
+flextable(contributors) |>
+  autofit() |>
+  theme_box() |>
+  bg(bg = "darkgreen", part = "header") |>
+  color(color = "white", part = "header")
+```
+
+
+```{r}
+#| tbl-cap: "Revision history"
+
+revision_history <- tribble(
+  ~ "Version", ~ "Date",     ~ "Reviewer", ~ "Modifications",
+  "V0",        "2026-09-07", "/",          "initial setup quarto-book"
+)
+
+flextable(revision_history) |>
+  autofit() |>
+  theme_box() |>
+  bg(bg = "darkgreen", part = "header") |>
+  color(color = "white", part = "header")
+```
+
+```{=latex}
+\begin{flushright}
+Place and date
+\end{flushright}
+```

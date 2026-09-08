@@ -1,0 +1,4 @@
+# Definitions {.unnumbered}
+
+chapter to translate SML terminology and requirements in statistical notation and definitions
+

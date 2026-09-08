@@ -1,0 +1,26 @@
+[
+    {
+        "URL": "http://data.europa.eu/eli/dir/2025/2360/oj",
+        "accessed": {
+            "date-parts": []
+        },
+        "authority": "CONSIL, EP",
+        "citationkey": "2025",
+        "id": "SML_directive2025_2360",
+        "issued": {
+            "date-parts": [
+                [
+                    2025,
+                    11,
+                    12
+                ]
+            ]
+        },
+        "key": "IE7DE2S7",
+        "language": "en",
+        "libraryid": "2",
+        "providerkey": "Zotero",
+        "title": "Directive (EU) 2025/2360 of the European Parliament and of the Council of 12 November 2025 on soil monitoring and resilience (Soil Monitoring Law)",
+        "type": "bill"
+    }
+]
