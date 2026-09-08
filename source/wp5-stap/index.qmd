@@ -1,11 +1,14 @@
 # Project & deliverable {.unnumbered}
 
-## Project data
-
-```{r, echo = F}
+```{r, echo=F}
 library(tibble) |> suppressPackageStartupMessages()
 library(flextable) |> suppressPackageStartupMessages()
 library(officer) |> suppressPackageStartupMessages()
+```
+
+
+```{r, echo = F}
+#| tbl-cap: "Project data"
 
 project_data <- tribble(
   ~ "V1",            ~ "V2",
@@ -29,10 +32,8 @@ flextable(project_data) |>
   theme_box()
 ```
 
-
-## Deliverable data
-
 ```{r, echo=F}
+#| tbl-cap: "Deliverable data"
 
 deliverable_data <- tribble(
   ~ "V1",                ~ "V2",
@@ -48,6 +49,7 @@ deliverable_data <- tribble(
   "Version",             "",
   "Author(s)",           ""
 )
+
 flextable(deliverable_data) |>
   autofit() |>
   delete_part(part = "header") |>
@@ -61,32 +63,38 @@ flextable(deliverable_data) |>
 
 \newpage
 
-## Contributors
-
 ```{r, echo=F}
+#| tbl-cap: "Contributors"
 
 inbo <- "Research Institute Nature and Forest, Flanders (Belgium)"
+
 contributors <- tribble(
   ~ "Name",         ~ "Organization and country",
   "Hans Van Calster", inbo,
   "Ben Serrien",      inbo,
 )
+
 flextable(contributors) |>
   autofit() |>
-  theme_box()
+  theme_box() |>
+  bg(bg = "darkgreen", part = "header") |>
+  color(color = "white", part = "header")
 ```
 
-## Revision history
 
 ```{r, echo=F}
+#| tbl-cap: "Revision history"
 
 revision_history <- tribble(
   ~ "Version", ~ "Date",     ~ "Reviewer", ~ "Modifications",
-  "V0",        "2026-09-07", "/",          "/"
+  "V0",        "2026-09-07", "/",          "initial setup quarto-book"
 )
+
 flextable(revision_history) |>
   autofit() |>
-  theme_box()
+  theme_box() |>
+  bg(bg = "darkgreen", part = "header") |>
+  color(color = "white", part = "header")
 ```
 
 ```{=latex}
