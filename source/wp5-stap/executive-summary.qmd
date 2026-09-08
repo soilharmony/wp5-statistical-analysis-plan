@@ -4,7 +4,8 @@ bibliography: references.json
 
 # Executive summary {.unnumbered}
 
-This report presents the Statistical Analysis Plan (StAP) for the SoilHarmony project. The core of the project centres around so-called transfer functions (TF) and pedotransfer functions (PTF) as referred to in the EU Soil Monitoring Law (SML): @SML_directive2025_2360.
+This report presents the Statistical Analysis Plan (StAP) for the SoilHarmony project. 
+The core of the project centres around so-called transfer functions (TF) and pedotransfer functions (PTF) as referred to in the EU Soil Monitoring Law (SML): @SML_directive2025_2360.
 
 ```{=latex}
 \clearpage
