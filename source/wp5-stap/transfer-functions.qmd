@@ -2,6 +2,8 @@
 
 chapter to list different statistical models under consideration for TF
 
+describe results of simulation experiments: global idea is to say we don't need to consider measurement error ???
+
 **Normal** 
 pH
 

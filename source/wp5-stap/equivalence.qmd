@@ -2,15 +2,15 @@
 
 CEN vs. current ISO-standards = equivalence by the law (without statistical validation???)
 
-Bland-Altman
-
-ROPE test
-
-absolute/relative scale
+Bland-Altman, ROPE test, absolute vs. relative scale
 
 $\delta_l, \delta_u$: symmetrical? 
 
-expert elicitation
+expert elicitation: Bruno De Vos thinks it will be hard to find agreement between experts what level of $\delta$ can serve for equivalence
 
-compare with technical errors of both methods (replicated measures on same sample)
+idea of Bruno is to use ring tests between soil labs to set levels for $\delta$:
+we estimate the reproducibility variance with a ring test (possibly as a function of the value of the soil descriptor) and define equivalent methods as those that fall within 2 or 3 times the reproducibility variance
+$$
+\sigma^2_{\text{reproducibility}} = \sigma^2_{\text{repeatability}} + \sigma^2_{\text{inter-laboratory}}
+$$
 

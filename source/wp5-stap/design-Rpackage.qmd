@@ -1,12 +1,14 @@
 # Design of the R-package {.unnumbered}
 
-development approach
+name of the package: `soilharmony`
+
+development approach (checklist)
 
 translation of the StAP into design principles of the R package
 
 interactions between the R-package and the WP6 database
 
-long-term hosting and maintenance
+long-term hosting and maintenance (CRAN)
 
 Rough ideas for end-user functions:
 
@@ -14,8 +16,8 @@ Rough ideas for end-user functions:
 #| echo: true
 #| eval: false
 
-# install latest development version from github
-remotes::install_github("soilharmony/soilharmony")
+# install latest development version from soilharmony github organization
+pak::pkg_install("soilharmony/soilharmony")
 
 library(soilharmony)
 
@@ -24,8 +26,8 @@ library(soilharmony)
 soilharmony::sh_equivalence(
   y1 = ph_iso_bla_bla,
   y2 = ph_local_protocol,
-  relative_diff = TRUE,
-  delta = 0.2,
+  relative_diff = FALSE,
+  delta = ringtest_ph,
   data = large_european_dataset
 )
 
