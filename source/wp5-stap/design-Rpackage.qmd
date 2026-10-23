@@ -1,0 +1,50 @@
+# Design of the R-package {.unnumbered}
+
+development approach
+
+translation of the StAP into design principles of the R package
+
+interactions between the R-package and the WP6 database
+
+long-term hosting and maintenance
+
+Rough ideas for end-user functions:
+
+```{r}
+#| echo: true
+#| eval: false
+
+# install latest development version from github
+remotes::install_github("soilharmony/soilharmony")
+
+library(soilharmony)
+
+
+# test for method equivalence
+soilharmony::sh_equivalence(
+  y1 = ph_iso_bla_bla,
+  y2 = ph_local_protocol,
+  relative_diff = TRUE,
+  delta = 0.2,
+  data = large_european_dataset
+)
+
+# calibrate a new TF
+soilharmony::sh_calibrate(
+  formula = ph_refmethod ~ ph_nonrefmethod * soil_unit,
+  data = large_european_dataset
+)
+
+# validate a TF against new data
+soilharmony::sh_validate(
+  tf_id = "unique_id_for_the_TF_in_the_WP6_database",
+  validation_data = soilharmony_wp4_dataset_4000samples
+)
+
+# end-user makes predictions (function should be called by the RShiny app)
+soilharmony::sh_predict(
+  tf_id = "unique_id_for_the_TF_in_the_WP6_database",
+  new_observations = my_new_measurements_in_2028
+)
+```
+

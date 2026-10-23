@@ -1,0 +1,15 @@
+# Transfer functions {.unnumbered}
+
+chapter to list different statistical models under consideration for TF
+
+**Normal** 
+pH
+
+**Gamma/lognormal**
+most of the soil descriptors
+
+**Left-censored**
+
+**Simplex**
+PSD
+

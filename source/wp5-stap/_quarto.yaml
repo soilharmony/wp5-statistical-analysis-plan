@@ -10,7 +10,11 @@ book:
     - executive-summary.qmd # incl. TOC, LOF, LOT, LOA
     # <-- insert chapters here
     - definitions.qmd
-    - statistical-models.qmd
+    - equivalence.qmd
+    - transfer-functions.qmd
+    - pedotransfer-functions.qmd
+    - StAP.qmd
+    - design-Rpackage.qmd
     # insert chapters here -->
     - references.qmd
 

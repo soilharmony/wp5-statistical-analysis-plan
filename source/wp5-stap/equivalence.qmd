@@ -1,0 +1,16 @@
+# Equivalent methods {.unnumbered}
+
+CEN vs. current ISO-standards = equivalence by the law (without statistical validation???)
+
+Bland-Altman
+
+ROPE test
+
+absolute/relative scale
+
+$\delta_l, \delta_u$: symmetrical? 
+
+expert elicitation
+
+compare with technical errors of both methods (replicated measures on same sample)
+
