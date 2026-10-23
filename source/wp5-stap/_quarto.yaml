@@ -13,7 +13,6 @@ book:
     - equivalence.qmd
     - transfer-functions.qmd
     - pedotransfer-functions.qmd
-    - StAP.qmd
     - design-Rpackage.qmd
     # insert chapters here -->
     - references.qmd
