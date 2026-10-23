@@ -33,13 +33,13 @@ From the grant agreement, Annex 1, part B:
 
 This github repo will be used for writing the statistical analysis plan. The pdf of the final document can be found here:
 
-.
+```
 ├── source
 │   ├── checklist.R
 │   └── wp5-stap
 │       └── _book
 │           └── wp5-stap.pdf
-└── README.md
+```
 
 <!-- description: end -->
 
