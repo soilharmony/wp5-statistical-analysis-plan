@@ -26,6 +26,10 @@ Reference methods are standardized protocols made by an international standards 
 Reference methods are listed per soil descriptor in the SML.
 For statistical notation, we denote the random variable that represents the soil descriptor as measured with the reference method as $Y$.
 
+<!--
+Quid variation within the reference method? How do we deal with that? Eg. the SML specifies for pH an ISO norm, but leaves it open which extractant to use and at which soil:solution ratio. Are all variants within the ISO then a reference method and we don't need to translate them to a common standard?
+-->
+
 **Non-reference method**
 
 All competing methods to measure the same physical or chemical property as the reference method is a non-reference method (eg. national or regional standards).
@@ -46,10 +50,9 @@ Instead of the latent values, we have observed values $\mathbf{y}_{\text{obs}}$,
 **Equivalent methods**
 
 The SML mentions that the currently listed reference methods - which are all ISO-standards - will be considered equivalent to CEN methods which will then play the role of reference methods.
+This is method equivalence by law.
 Other methods can also be considered to be equivalent to the reference method if certain statistical requirements are met.
-In the next chapter 
-
-
+The statistical procedure to define equivalent methods will be detailed in a next chapter.
 
 **Transfer function**
 
@@ -63,8 +66,17 @@ $$
 $${#eq-TF}
 Different types of statistical models can be used for $f$ and we review several in the chapter on TF.
 
+**Double sampling**
 
+In order to develop TFs, we need to have a dataset with observations of the soil descriptor measured in the same location with both methods.
+This dataset comes from a double sampling study.
 
+How is double sampling defined exactly???
+
+<!--
+- from a certain area (eg. 10 m $\times$ 10 m) we take $n$ sub-samples, mix them together and split the mixture in two halves, one part is analysed with method 1 and the other part with method 2 (OPTIMAL DEFINITION)
+- from a certain area we take $n_1 + n_2$ sub-samples, and make two mixtures (one based on $n_1$ sub-samples and the other based on $n_2$ sub-samples), each mixture is then analysed with a different method (I HOPE THIS IS NOT THE CASE )
+-->
 
 **Pedotransfer function**
 
