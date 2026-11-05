@@ -1,16 +1,54 @@
 # Equivalent methods {.unnumbered}
 
-CEN vs. current ISO-standards = equivalence by the law (without statistical validation???)
+The SML allows member states to use non-reference methods if it can be verified that it provides equivalent results as the reference method.
 
-Bland-Altman, ROPE test, absolute vs. relative scale
+**Equivalence by law**
 
-$\delta_l, \delta_u$: symmetrical? 
+CEN vs. current ISO-standards = equivalence by the law 
+(without statistical validation???)
+
+**Statistical testing of equivalence**
+
+*Bland-Altman, TOST-test & ROPE test*
+
+absolute vs. relative scale
+
+$\delta_l, \delta_u$: symmetrical?
 
 expert elicitation: Bruno De Vos thinks it will be hard to find agreement between experts what level of $\delta$ can serve for equivalence
 
-idea of Bruno is to use ring tests between soil labs to set levels for $\delta$:
-we estimate the reproducibility variance with a ring test (possibly as a function of the value of the soil descriptor) and define equivalent methods as those that fall within 2 or 3 times the reproducibility variance
+
+*Reproducibility based on ringtests*
+
+When expert agreement on thresholds for equivalence cannot be obtained, a method to derive thresholds can be based on so-called inter-laboratory ringtests. 
+Ringtests are described in an ISO-standard @iso57252025 and can be used to derive a measure of reproducibility of a certain lab method.
+Reproducibility is composed of within-lab variability (repeatability) and between-lab variability.
+In statistical notation, the variance can be written as the sum of the variance of both components:
+
 $$
-\sigma^2_{\text{reproducibility}} = \sigma^2_{\text{repeatability}} + \sigma^2_{\text{inter-laboratory}}
+\sigma^2_R = \sigma^2_{\text{reproducibility}} = \sigma^2_{\text{repeatability}} + \sigma^2_{\text{inter-laboratory}}
+$${#eq-ringtest}
+
+Reproducibility of the SML reference methods for a soil descriptor can be measured through such a ringtest.
+The thresholds to define equivalence of a non-reference method can then be based on the level of reproducibility of the reference method.
+If the reference method $Y$ is reproducible up to a value of $\sigma^2_R$, then a non-reference method $X$ could be defined as equivalent if the difference has an expected value of 0 over the whole range of the soil descriptor and if the difference falls within a pre-defined range with a certain probability (for example a range of 2 times $\sigma^2_R$ with a probability of 95%):
+
 $$
+\begin{aligned}
+D &= Y - X \\
+E[D|X] &= 0 \\
+P(D \in \pm k \sigma_R) &= 1 - \alpha
+\end{aligned}
+$${#eq-equivalence}
+
+Ringtests that examine multiple samples spread over a large range of the soil descriptor allow to calculate the reproducibility in function of the value of the soil descriptor: $\sigma_R(Y)$.
+Soil descriptors can have different levels of reproducibility for small or large values, often the reproducibility variance increases for larger values of the soil descriptor.
+
+... include a worked example of the procedure ...
+
+
+
+
+
+
 
