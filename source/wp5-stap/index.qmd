@@ -12,6 +12,8 @@ library(officer)
 ```{r}
 #| tbl-cap: "Project data"
 
+sh_website <- "https://mission-soil-platform.ec.europa.eu/index.php/project-hub/soilharmony"
+
 project_data <- tribble(
   ~ "V1",            ~ "V2",
   "Project acronym", "SOILHARMONY",
@@ -21,7 +23,7 @@ project_data <- tribble(
   "Call topic",      "HORIZON-MISS-2025-05-SOIL-04",
   "Type of action",  "HORIZON-RIA",
   "Lead contractor", "INRAE",
-  "Project website", "... coming soon"
+  "Project website", sh_website
 )
 flextable(project_data) |>
   autofit() |>
@@ -39,12 +41,12 @@ flextable(project_data) |>
 
 deliverable_data <- tribble(
   ~ "V1",                ~ "V2",
-  "Name/title",          "AI - POPD - NEC - H - EPQ - Requirement No. 1",
+  "Name/title",          "SoilHarmony Statistical Analysis Plan",
   "Deliverable no.",     "D5.1",
   "Description",         "Statistical Analysis Plan (StAP)",
   "Type",                "??",
   "Dissemination level", "??",
-  "Due date",            "M12",
+  "Due date",            "M12 (June 2027)",
   "Submission date",     "??",
   "Work package no.",    "WP5",
   "Lead beneficiary",    "EVINBO / CRA-W / ATK",
