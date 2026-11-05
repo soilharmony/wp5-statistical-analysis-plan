@@ -1,4 +1,4 @@
-# Transfer functions {.unnumbered}
+# Transfer functions
 
 chapter to list different statistical models under consideration for TF
 

@@ -1,4 +1,4 @@
-# Design of the R-package {.unnumbered}
+# Design of the R-package
 
 name of the package: `soilharmony`
 

@@ -1,4 +1,4 @@
-# Definitions {.unnumbered}
+# Definitions
 
 In this chapter, we will translate SML terminology and requirements in clear statistical notation and definitions.
 @fig-SML is an extract from the SML (annex II, part B) and will be used as starting point:
