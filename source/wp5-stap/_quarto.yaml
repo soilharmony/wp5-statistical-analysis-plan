@@ -34,6 +34,7 @@ format:
 knitr:
   opts_chunk:
     echo: FALSE
+    message: FALSE
 
 filters:
   - flextable-qmd
