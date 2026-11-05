@@ -14,6 +14,8 @@ library(officer)
 
 sh_website <- "https://mission-soil-platform.ec.europa.eu/index.php/project-hub/soilharmony"
 
+darkbrown <- rgb(124, 94, 57, maxColorValue = 250)
+
 project_data <- tribble(
   ~ "V1",            ~ "V2",
   "Project acronym", "SOILHARMONY",
@@ -30,7 +32,7 @@ flextable(project_data) |>
   delete_part(part = "header") |>
   style(
     j = 1,
-    pr_c = fp_cell(background.color = "darkgreen"),
+    pr_c = fp_cell(background.color = darkbrown),
     pr_t = fp_text(color = "white")
   ) |>
   theme_box()
@@ -59,7 +61,7 @@ flextable(deliverable_data) |>
   delete_part(part = "header") |>
   style(
     j = 1,
-    pr_c = fp_cell(background.color = "darkgreen"),
+    pr_c = fp_cell(background.color = darkbrown),
     pr_t = fp_text(color = "white")
   ) |>
   theme_box()
@@ -81,7 +83,7 @@ contributors <- tribble(
 flextable(contributors) |>
   autofit() |>
   theme_box() |>
-  bg(bg = "darkgreen", part = "header") |>
+  bg(bg = darkbrown, part = "header") |>
   color(color = "white", part = "header")
 ```
 
@@ -97,7 +99,7 @@ revision_history <- tribble(
 flextable(revision_history) |>
   autofit() |>
   theme_box() |>
-  bg(bg = "darkgreen", part = "header") |>
+  bg(bg = darkbrown, part = "header") |>
   color(color = "white", part = "header")
 ```
 
