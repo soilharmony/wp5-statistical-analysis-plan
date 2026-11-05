@@ -7,7 +7,7 @@ book:
   date: ""
   chapters:
     - index.qmd
-    - executive-summary.qmd # incl. TOC, LOF, LOT, LOA
+    - abstract.qmd # incl. TOC, LOF, LOT, LOA
     # <-- insert chapters here
     - definitions.qmd
     - equivalence.qmd
