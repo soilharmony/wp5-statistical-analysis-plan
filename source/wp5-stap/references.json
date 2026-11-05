@@ -22,5 +22,23 @@
         "providerkey": "Zotero",
         "title": "Directive (EU) 2025/2360 of the European Parliament and of the Council of 12 November 2025 on soil monitoring and resilience (Soil Monitoring Law)",
         "type": "bill"
+    },
+    {
+        "citationkey": "2025a",
+        "id": "iso57252025",
+        "issued": {
+            "date-parts": [
+                [
+                    2025
+                ]
+            ]
+        },
+        "key": "VLAIVRRY",
+        "libraryid": "2",
+        "providerkey": "Zotero",
+        "publisher": "International Standardization Organisation",
+        "publisher-place": "Switzerland",
+        "title": "ISO 5725-2:2025 Accuracy (trueness and precision) of measurement methods and results - Part 2: Basic method for the determination of repeatability and reproducibility of a standard measurement method",
+        "type": "report"
     }
 ]
