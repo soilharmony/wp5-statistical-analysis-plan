@@ -1,26 +1,108 @@
-# Equivalent methods {.unnumbered}
+# Equivalent methods
 
 The SML allows member states to use non-reference methods if it can be verified that it provides equivalent results as the reference method.
 
-**Equivalence by law**
+<br>
 
-CEN vs. current ISO-standards = equivalence by the law 
-(without statistical validation???)
+## Equivalence by law
 
-**Statistical testing of equivalence**
+The SML mentions that the currently listed reference methods - which are all ISO-standards - will be considered equivalent to CEN methods which will then play the role of reference methods.
+This is method equivalence by law.
 
-*Bland-Altman, TOST-test & ROPE test*
+<!-- equivalence by law without statistical validation? -->
 
-absolute vs. relative scale
+<br>
 
-$\delta_l, \delta_u$: symmetrical?
+## Statistical testing of equivalence
 
-expert elicitation: Bruno De Vos thinks it will be hard to find agreement between experts what level of $\delta$ can serve for equivalence
+For the statistical examination of methodological equivalence of two methods, we recommend doing a Bland-Altman analysis together with a ROPE-test (ROPE = region of practical equivalence).
 
+The Bland-Altman procedure plots the difference of two methods ($D = Y - X$) against the average of both methods ($M = \frac{Y + X}{2}$).
+When the soil descriptor is right-skewed, often the relative difference is used instead of the absolute difference ($D = \frac{Y - X}{M}$).
+The Bland-Altman procedure defines the bias of the non-reference method versus the reference method as the average of the differences and defines the limits of agreement between both methods as the $(\frac{\alpha}{2}; 1 - \frac{\alpha}{2})$ quantiles of the differences:
 
-*Reproducibility based on ringtests*
+$$
+\begin{aligned}
+\text{bias} &= \frac{1}{N}\sum_{i=1}^ND_i \\
+P(D_i \in \text{LoA}) &= 1 - \alpha
+\end{aligned}
+$${#eq-BlandAltman} 
 
-When expert agreement on thresholds for equivalence cannot be obtained, a method to derive thresholds can be based on so-called inter-laboratory ringtests. 
+This is a good first visual tool when examining equivalence of two methods.
+It is important to verify in a Bland-Altman analysis whether the variability of the differences is approximately equal across the range of the soil descriptor; when this is not the case a relative difference is recommended.
+In @fig-blandaltman we show an example with simulated data, mimicking a soil descriptor like pH.
+
+```{r}
+#| label: fig-blandaltman
+#| fig-cap: "Example of a Bland-Altman analysis."
+
+library(tidyverse)
+library(bayestestR)
+
+# simulate data ~ soil pH
+set.seed(123)
+x <- rnorm(100, mean = 7, sd = 2)
+y <- rnorm(100, mean = x, sd = .1)
+df <- data.frame(
+  x = x, 
+  y = y,
+  d = y - x,
+  m = (x + y) / 2
+)
+
+# Bland-Altman plot
+bias <- mean(df$d)
+loa  <- quantile(df$d, c(.025, .975))
+
+ggplot(df, aes(m, d)) +
+  geom_point() +
+  geom_smooth(method = "loess", color = "blue", fill = "blue", alpha = .1) +
+  geom_hline(yintercept = 0, lty = 2) +
+  geom_hline(yintercept = bias, lty = 3, color = "blue") +
+  annotate("text", x = 2, y = bias - .02, label = "bias", color = "blue") +
+  geom_hline(yintercept = loa, lty = 3, color = "red") +
+  annotate("text", x = 2, y = loa - .02, label = "LoA", color = "red") +
+  scale_x_continuous(breaks = seq(3, 10, 1)) +
+  theme_minimal() + 
+  labs(x = "M = (Y + X) / 2",
+       y = "D = Y - X",
+       caption = "simulated data")
+```
+
+Statistical testing of the equivalence of two methods can be done formally with a ROPE-test. 
+This procedure requires specification by the researcher of an interval $\left[\delta_l, \delta_u\right]$ (most often symmetric around zero, but could be asymmetric) that represents a region of practical equivalence (ROPE). 
+All values within this range can be considered to be practically equivalent to each other
+When the 95% highest density interval of the differences $D_i$ falls completely inside the ROPE, then the two methods can be considered equivalent to each other with 95% probability.
+This method requires a-priori agreement among soil scientists which values of $\delta$ to be used for each soil descriptor (and choice of absolute or relative scale).
+In @fig-rope we show an example, with the same data as the Bland-Altman example, of the ROPE test using $\delta = \pm 0.15$ (arbitrary value).
+
+```{r}
+#| label: fig-rope
+#| fig-cap: "Example of a ROPE test"
+
+delta <- c(-0.15, 0.15)
+
+rope_d <- rope(df$d, range = delta)
+plot(rope_d) +
+  annotate("text", x = -0.1, y = 1, label = "ROPE") +
+  geom_vline(xintercept = 0, lty = 2) +
+  geom_rug(data = df, inherit.aes = FALSE, aes(x = d)) +
+  theme_minimal() +
+  labs(x = "D = Y - X", y = "", title = "",
+       caption = "simulated data")
+```
+
+A large proportion of the differences fall within the ROPE, but the 95% HDI is not completely inside the ROPE, giving an undecided conclusion: these methods would not be considered equivalent.
+
+```{r}
+equivalence_test(df$d, ci_method = "HDI", ci = .95, range = delta)
+```
+
+<br>
+
+## Equivalence based on ringtest reproducibility
+
+When expert agreement on thresholds for equivalence cannot be obtained, a statistical method to derive thresholds can be based on so-called inter-laboratory ringtests. 
 Ringtests are described in an ISO-standard @iso57252025 and can be used to derive a measure of reproducibility of a certain lab method.
 Reproducibility is composed of within-lab variability (repeatability) and between-lab variability.
 In statistical notation, the variance can be written as the sum of the variance of both components:
@@ -42,11 +124,64 @@ P(D \in \pm k \sigma_R) &= 1 - \alpha
 $${#eq-equivalence}
 
 Ringtests that examine multiple samples spread over a large range of the soil descriptor allow to calculate the reproducibility in function of the value of the soil descriptor: $\sigma_R(Y)$.
-Soil descriptors can have different levels of reproducibility for small or large values, often the reproducibility variance increases for larger values of the soil descriptor.
+Soil descriptors can have different levels of reproducibility for small or large values; often the reproducibility variance increases for larger values of the soil descriptor.
 
+Below we show a worked example of how this procedure can be performed.
 ... include a worked example of the procedure ...
 
+```{r}
+#| label: fig-ringtest
+#| fig-caption: "Data from an inter-laboratory ringtest"
 
+library(ringtest)
+data("ringtest_demo")
+
+cellstats <- calc_cell_stats(ringtest_demo) |> 
+  calc_mandel_hk()
+
+outliers <- test_outliers(cellstats)
+
+ringtest_demo_clean <- ringtest_demo |> 
+  filter(
+    !(lab == "Lab_08" & level == "Level_2"),
+    !(lab == "Lab_10" & level == "Level_5")
+  )
+
+ggplot(ringtest_demo_clean, aes(level, value, color = lab)) +
+  geom_point(position = position_jitterdodge()) +
+  theme_minimal() +
+  labs(x = "Sample Id", y = "soil descriptor (A.U.)", 
+       caption = "simulated data", color = "Lab code")
+```
+
+```{r}
+
+precision_tbl <- precision(ringtest_demo_clean)
+
+fit2 <- with(precision_tbl, fit_precision_relationship(m_hat, s_R, rel = "II"))
+
+ggplot(precision_tbl, aes(m_hat, s_R)) +
+  geom_point() +
+  geom_line() +
+  geom_line(aes(y = fit2$fitted, color = fit2$rel)) +
+  labs(title = "Reproducibility", color = "Type of relationship (ISO)")
+
+set.seed(123)
+N <- 100
+y <- runif(N, 10, 50)
+s <- fit2$params[1] + fit2$params[2] * y
+x <- rnorm(N, mean = y, sd = s)
+
+df <- data.frame(y = y, x = x, s = s)
+
+ggplot(df, aes(y, y - x)) +
+  geom_point() +
+  geom_smooth() +
+  geom_line(aes(y = 2*s), lty = 2, color = "blue") +
+  geom_line(aes(y = -2*s), lty = 2, color = "blue") +
+  geom_hline(yintercept = 0, lty = 2, color = "blue") +
+  labs(x = "reference method", y = "diff(reference - new) method")
+```
 
 
 
