@@ -1,0 +1,55 @@
+% header written by Claude-AI
+
+% Use KOMA's own header/footer package instead of fancyhdr,
+% since Quarto books default to the KOMA-Script "scrreprt" class,
+% which manages its own page styles.
+
+\usepackage[automark,headsepline]{scrlayer-scrpage}
+\usepackage{pdfpages}
+\usepackage{acronym}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage{titlesec}
+
+% darkgreen color for layout
+\definecolor{darkgreen}{HTML}{006400}
+
+% formatting chapter titles
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries}
+  {\chaptertitlename\ \thechapter}
+  {20pt}
+  {\Huge\color{darkgreen}}
+% white spacing at beginning of chapter {left}{before}{after}
+\titlespacing*{\chapter}{0pt}{-30pt}{20pt}
+
+
+% table captions:
+\captionsetup[table]{
+  font={color=darkgreen, Large, bf},  % color + font size
+  justification=raggedright,        % left-align...
+  singlelinecheck=false,             % ...even for one-line captions
+  labelformat=empty
+}
+
+% Give enough room for a three-line header
+\KOMAoptions{headheight=52pt}
+
+\clearpairofpagestyles
+
+% Three-line, left-aligned header (inner head = same on every page,
+% left- or right-hand, one- or two-sided)
+\ihead{%
+  \parbox[b]{0.95\textwidth}{\raggedright\small
+    This project has received funding from the European Union’s Horizon Europe research and innovation programme under grant agreement No 101296615
+  }%
+}
+
+% Page number, right-aligned, in the footer
+\ofoot*{\pagemark}
+
+\pagestyle{scrheadings}
+
+% By default KOMA gives the first page of each chapter a separate
+% "plain" style with no header. Force it to use our style too.
+\renewcommand*{\chapterpagestyle}{scrheadings}

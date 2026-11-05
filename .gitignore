@@ -23,6 +23,7 @@
 *.shx
 *.sty
 *.tex
+!source/wp5-stap/header.tex
 *.xls*
 *_cache
 *_files
