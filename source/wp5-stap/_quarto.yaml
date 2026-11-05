@@ -24,6 +24,7 @@ csl: https://raw.githubusercontent.com/citation-style-language/styles/refs/heads
 format:
   pdf:
     mainfont: "Aptos"
+    sansfont: "Aptos"
     toc: false
     include-in-header: header.tex
     include-before-body:

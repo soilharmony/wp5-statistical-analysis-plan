@@ -1,37 +1,71 @@
-% header written by Claude-AI
-
-% Use KOMA's own header/footer package instead of fancyhdr,
-% since Quarto books default to the KOMA-Script "scrreprt" class,
-% which manages its own page styles.
+% ==============================================================================
+% SoilHarmony Deliverable Styling for Quarto (XeLaTeX / LuaLaTeX)
+% ==============================================================================
 
 \usepackage[automark,headsepline]{scrlayer-scrpage}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{parskip}
+\usepackage{setspace}
+\usepackage{tabularx}
+\usepackage{colortbl}
+\usepackage{booktabs}
+\usepackage{hyperref}
 \usepackage{pdfpages}
 \usepackage{acronym}
-\usepackage{xcolor}
 \usepackage{caption}
 \usepackage{titlesec}
 
-% darkgreen color for layout
-\definecolor{darkgreen}{HTML}{006400}
-
-% formatting chapter titles
-\titleformat{\chapter}[display]
-  {\normalfont\huge\bfseries}
-  {\chaptertitlename\ \thechapter}
-  {20pt}
-  {\Huge\color{darkgreen}}
-% white spacing at beginning of chapter {left}{before}{after}
-\titlespacing*{\chapter}{0pt}{-30pt}{20pt}
-
-
-% table captions:
-\captionsetup[table]{
-  font={color=darkgreen, Large, bf},  % color + font size
-  justification=raggedright,        % left-align...
-  singlelinecheck=false,             % ...even for one-line captions
-  labelformat=empty
+% ------------------------------------------------------------------------------
+% 1. Page Geometry & Margins (1 inch / 72pt on all sides)
+% ------------------------------------------------------------------------------
+\geometry{
+  a4paper,
+  left=25.4mm,
+  right=25.4mm,
+  top=25.4mm,
+  bottom=30mm,
+  headheight=26pt,
+  footskip=22pt
 }
 
+% ------------------------------------------------------------------------------
+% 2. Template Color Palette
+% ------------------------------------------------------------------------------
+% https://erdyn.sharepoint.com/sites/GAPSOILHARMONY/Documents%20partages/Forms/AllItems.aspx?viewid=2cd3e6db%2D7df4%2D4dc2%2Da69f%2D6d8bb17be9a9&id=%2Fsites%2FGAPSOILHARMONY%2FDocuments%20partages%2FSOILHARMONY%20%2D%20MANAGEMENT%2F2%2D%20WPs%2F7%2D%20WP7%2FOverall%20communication%20materials%2FVisual%20Identity%2FSoilHarmony%5Fbrand%5Fguidelines%2Epdf&parent=%2Fsites%2FGAPSOILHARMONY%2FDocuments%20partages%2FSOILHARMONY%20%2D%20MANAGEMENT%2F2%2D%20WPs%2F7%2D%20WP7%2FOverall%20communication%20materials%2FVisual%20Identity
+\definecolor{darkbrown}{RGB}{124, 94, 57}
+\definecolor{lightbrown}{RGB}{163, 109, 54}
+\definecolor{oker}{RGB}{219, 151, 78}
+\definecolor{lightgreen}{RGB}{134, 169, 13}
+\definecolor{darkgreen}{RGB}{110, 137, 58}
+
+% ------------------------------------------------------------------------------
+% 3. Section Heading Formatting (SH1, SH2, SH3)
+% ------------------------------------------------------------------------------
+% Section (SH1): 18pt bold, Aptos / Aptos Display color darkbrown
+\titleformat{\section}
+  {\normalfont\fontsize{18}{22}\bfseries\color{darkbrown}}
+  {\thesection}{1em}{}
+
+% Subsection (SH2): 14pt bold, color lightbrown
+\titleformat{\subsection}
+  {\normalfont\fontsize{14}{18}\bfseries\color{lightbrown}}
+  {\thesubsection}{1em}{}
+
+% Subsubsection (SH3): 11pt/normal bold, color lightgreen
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{lightgreen}}
+  {\thesubsubsection}{1em}{}
+
+% Spacing around titles: \titlespacing*{<command>}{left}{before}{after}
+\titlespacing*{\section}{0pt}{1.8ex plus 1ex minus .2ex}{0.8ex plus .2ex}
+\titlespacing*{\subsection}{0pt}{1.5ex plus 1ex minus .2ex}{0.6ex plus .2ex}
+\titlespacing*{\subsubsection}{0pt}{1.2ex plus 1ex minus .2ex}{0.5ex plus .2ex}
+
+% ------------------------------------------------------------------------------
+% 4. Running Headers & Footers (KOMA)
+% ------------------------------------------------------------------------------
 % Give enough room for a three-line header
 \KOMAoptions{headheight=52pt}
 
@@ -41,7 +75,14 @@
 % left- or right-hand, one- or two-sided)
 \ihead{%
   \parbox[b]{0.95\textwidth}{\raggedright\small
-    This project has received funding from the European Union’s Horizon Europe research and innovation programme under grant agreement No 101296615
+    This project has received funding from the European Union’s Horizon Europe research and innovation programme under grant agreement No 101296615.
+  }%
+}
+
+% footer
+\ifoot{%
+  \parbox[b]{0.95\textwidth}{\raggedright\small
+    Funded by the European Union. Views and opinions expressed are, however, those of the author(s) only and do not necessarily reflect those of the European Union. Neither the European Union nor the granting authority can be held responsible for them.
   }%
 }
 
@@ -53,3 +94,11 @@
 % By default KOMA gives the first page of each chapter a separate
 % "plain" style with no header. Force it to use our style too.
 \renewcommand*{\chapterpagestyle}{scrheadings}
+
+% ------------------------------------------------------------------------------
+% 5. Blockquote / Quote Formatting
+% ------------------------------------------------------------------------------
+\renewenvironment{quote}
+  {\list{}{\rightmargin\leftmargin}%
+   \item\relax\itshape\color{darkbrown}}
+  {\endlist}
