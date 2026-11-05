@@ -1,0 +1,11 @@
+# Validation {.unnumbered}
+
+Different validation metrics assess different aspects of the predictive performance, so to get a complete picture, a combination of metrics is necessary. 
+
+
+- Bias of the point estimates (MPE, MAE, RMSE)
+- Precision of the point estimates (SDPE)
+- Prediction uncertainty (PICP)
+- Distributional metrics (ELPD, CRPS)
+
+
