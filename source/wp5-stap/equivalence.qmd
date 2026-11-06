@@ -127,13 +127,17 @@ Ringtests that examine multiple samples spread over a large range of the soil de
 Soil descriptors can have different levels of reproducibility for small or large values; often the reproducibility variance increases for larger values of the soil descriptor.
 
 Below we show a worked example of how this procedure can be performed.
-... include a worked example of the procedure ...
+In @fig-ringtest we show an example of simulated data from a ringtest: 10 labs each analysed 5 samples and performed 5 replicate measures on each sample. 
+The reproducibility as function of the value of the soil descriptor is estimated according to the ISO procedure and the result is shown in @fig-reproducibility.
+Using that fitted relation, a variable ROPE can be constructed which allows greater spread for larger values of the soil descriptor.
+This method implicates that equivalence can only be demonstrated for values that were examined in the ringtest (no extrapolation beyond the examined values).
+In @fig-equivalence we show an example of how this could look: the variable ROPE (dashed blue lines) are based on the ringtest estimator and we calculate the proportion of observations inside the ROPE.  
 
 ```{r}
 #| label: fig-ringtest
 #| fig-caption: "Data from an inter-laboratory ringtest"
 
-library(ringtest)
+library(ringtest) # remotes::install_github("bserrien/ringtest")
 data("ringtest_demo")
 
 cellstats <- calc_cell_stats(ringtest_demo) |> 
@@ -155,6 +159,8 @@ ggplot(ringtest_demo_clean, aes(level, value, color = lab)) +
 ```
 
 ```{r}
+#| label: fig-reproducibility
+#| fig-cap: "Calculated reproducibility (points) and fitted value-reproducibility relationship (red) according to the ISO method."
 
 precision_tbl <- precision(ringtest_demo_clean)
 
@@ -163,8 +169,18 @@ fit2 <- with(precision_tbl, fit_precision_relationship(m_hat, s_R, rel = "II"))
 ggplot(precision_tbl, aes(m_hat, s_R)) +
   geom_point() +
   geom_line() +
-  geom_line(aes(y = fit2$fitted, color = fit2$rel)) +
-  labs(title = "Reproducibility", color = "Type of relationship (ISO)")
+  geom_line(aes(y = fit2$fitted), color = "red") +
+  annotate(
+    "text", x = 15, y = 0.10, color = "red",
+    label = glue::glue("sigma = {sprintf('%.3f', fit2$params[1])} + {sprintf('%.3f', fit2$params[2])} * x")
+  ) +
+  labs(x = "x = soil descriptor (A.U.)", y = "reproducibility (sigma)") +
+  theme_minimal()
+```
+
+```{r}
+#| label: fig-equivalence
+#| fig-cap: "Demonstrating method equivalence with a variable ROPE that is based on a ringtest."
 
 set.seed(123)
 N <- 100
@@ -174,16 +190,22 @@ x <- rnorm(N, mean = y, sd = s)
 
 df <- data.frame(y = y, x = x, s = s)
 
+prop_within_rope <- df |> 
+  summarise(p = mean(between(y - x, -2*s, +2*s))) |> 
+  pull(p)
+
 ggplot(df, aes(y, y - x)) +
   geom_point() +
-  geom_smooth() +
+  geom_smooth(fill = "blue", alpha = .1) +
   geom_line(aes(y = 2*s), lty = 2, color = "blue") +
   geom_line(aes(y = -2*s), lty = 2, color = "blue") +
   geom_hline(yintercept = 0, lty = 2, color = "blue") +
-  labs(x = "reference method", y = "diff(reference - new) method")
+  labs(x = "reference method (A.U.)", y = "diff(reference - new) method") +
+  annotate(
+    "text", x = 20, y = 0.3, color = "blue",
+    label = glue::glue("% observation within ROPE: {sprintf('%.2f', prop_within_rope)}")
+  ) +
+  theme_minimal()
 ```
-
-
-
 
 
